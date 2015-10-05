@@ -4,7 +4,7 @@ This is a bash wrapper for the pandoc tool. Usually, I take notes or writing
 reports in markdown, in order to  have them in plain text, which is more
 readable from latex, and is cross-platform. Markdown and using of pandoc for
 producing pdf, docx, latex, html files etc is a great choice for plain text
-(there are limitations for more sofisticated texts).
+(there are limitations for more sophisticated texts).
 
 So, this is the script I wrote in order to compile multiple `md` files at once
 and choosing between latex templates.
