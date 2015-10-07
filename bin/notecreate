@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo
+echo "Creating a new file"
+echo
+
+if [[ $# -eq 0 ]] ; then
+    echo 'You have not given a name from the new file.'
+    echo 'Exiting'
+    exit 0
+fi
+
+cp $MYNOTES/config/template1.md md/$1.md
+
+touch bib/$1.md
+
