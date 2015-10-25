@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$,$if(myheaders)$twoside$endif$]{$documentclass$}
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
@@ -66,6 +66,7 @@ $endif$
             linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
+$if(defaultheaders)$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \pagenumbering{arabic}
@@ -75,6 +76,7 @@ $endif$
 \lfoot{v $version$}
 \cfoot{}
 \rfoot{\thepage}
+$endif$
 $if(lang)$
 \ifxetex
   \usepackage{polyglossia}
