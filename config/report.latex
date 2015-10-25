@@ -205,7 +205,7 @@ $if(myheaders)$
 \pagestyle{fancy}
 \fancyhead[RO,LE]{\thepage}
 \fancyhead[RE]{$if(title)$ $title$ $endif$}
-\fancyhead[LO]{\leftmark}
+\fancyhead[LO]{\textsc{\nouppercase{\leftmark}}}
 \fancyfoot[L,R,C]{}
 $if(draft)$
   \fancyfoot[C]{[Draft]}
