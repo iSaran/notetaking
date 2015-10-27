@@ -20,8 +20,9 @@ EOF
 
 TEMPLATE=default.mylatex
 WHICH="all"
+ENGINE=pdflatex
 #while getopts “ht:r:p:v” OPTION
-while getopts “ht:w:” OPTION
+while getopts “ht:w:e:” OPTION
 do
      case $OPTION in
          h)
@@ -33,6 +34,9 @@ do
              ;;
          w)
              WHICH=$OPTARG
+             ;;
+         e)
+             ENGINE=$OPTARG
              ;;
          ?)
              usage
@@ -49,10 +53,10 @@ if [ $WHICH = "all" ] ; then
       echo "-Processing $gg"
        if [ -f bib/$gg.bib ]; then
           echo "--Building with bibliography"
-          pandoc --biblio bib/$gg.bib --csl $MYNOTES/config/ieee.csl md/$gg.md -o pdf/$gg.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=xelatex 
+          pandoc --biblio bib/$gg.bib --csl $MYNOTES/config/ieee.csl md/$gg.md -o pdf/$gg.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=$ENGINE 
         else
           echo "--Building without bibliography"
-          pandoc md/$gg.md -o pdf/$gg.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=xelatex 
+          pandoc md/$gg.md -o pdf/$gg.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=$ENGINE
         fi      #mv $g.pdf ../pdfs/
    done
   exit 0
@@ -60,7 +64,7 @@ fi
 
 echo -n "Creating output of " $WHICH
 echo 
-pandoc --biblio bib/$WHICH.bib --csl $MYNOTES/config/ieee.csl md/$WHICH.md -o pdf/$WHICH.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=xelatex 
+pandoc --biblio bib/$WHICH.bib --csl $MYNOTES/config/ieee.csl md/$WHICH.md -o pdf/$WHICH.pdf --template=$MYNOTES/config/$TEMPLATE --number-sections --latex-engine=$ENGINE 
 #mv $1.pdf ../pdfs/
 
 # 
