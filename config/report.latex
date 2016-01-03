@@ -83,9 +83,12 @@ $if(defaultheaders)$
 $endif$
 $if(lang)$
 \ifxetex
+  \newfontfamily\greekfont[Script=Greek]{Cambria}
+  \newfontfamily\greekfontsf[Script=Greek]{Consolas}
   \usepackage{polyglossia}
   \setmainlanguage{$mainlang$}
   \setotherlanguages{$for(otherlang)$$otherlang$$sep$,$endfor$}
+  \setdefaultlanguage{$lang$}
 \else
   \usepackage[shorthands=off,$lang$]{babel}
 \fi
